@@ -2,7 +2,10 @@
 
 A lightweight framework for AWS Lambda for serving rest APIs
 
-Requirements:
+MVP:
 - [ ] Class based views
+- [ ] Dispatched HTTP verbs
 - [ ] Ability to specify path per view
-- [ ] Formatted responses that serialize to json and include HTTP Status Code + Headers
+- [ ] Serialize responses to json
+- [ ] Include HTTP Status Code + Headers in response
+- [ ] Marshalled responses

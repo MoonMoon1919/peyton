@@ -6,5 +6,10 @@ MVP:
 - [ ] Class based views
 - [ ] Dispatched HTTP verbs
 - [ ] Ability to specify path per view
-- [ ] Serialized responses to json
-- [ ] Include HTTP Status Code + Headers in response
+- [x] Serialized responses to json
+- [x] Include HTTP Status Code + Headers in response
+
+---
+
+Questions:
+- How can we store a map of functions for path specification?

@@ -1,6 +1,15 @@
 """Class for responses."""
 
-from types import Dictionary, Integer
+from typing import TypedDict
+
+# Import our type checkers
+from type_checker import Dictionary, Integer
+
+
+class ResponseObject(TypedDict):
+    body: dict
+    headers: dict
+    status_code: int
 
 
 class Response:

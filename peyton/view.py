@@ -1,36 +1,37 @@
 """Base class for Views."""
 
-from response import Response
+# Import our Response class
+from response import Response, ResponseObject
 
 
 class ViewBase:
     """Base class upon which all class based views are built upon."""
 
-    def get(self, data):
+    def get(self, data: dict) -> ResponseObject:
         resp = Response(
             status_code=400, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def post(self, data):
+    def post(self, data: dict) -> ResponseObject:
         resp = Response(
             status_code=400, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def put(self, data):
+    def put(self, data: dict) -> ResponseObject:
         resp = Response(
             status_code=400, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def patch(self, data):
+    def patch(self, data: dict) -> ResponseObject:
         resp = Response(
             status_code=400, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def delete(self, data):
+    def delete(self, data: dict) -> ResponseObject:
         resp = Response(
             status_code=400, headers={}, body={"message": "Method not implemented"}
         )

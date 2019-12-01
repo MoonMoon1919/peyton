@@ -9,12 +9,16 @@ router = Router()
 """
 Example:
 
-from peyton.view import ViewBase
+from view import ViewBase
+from response import Response
+
 
 @router.register(path="/")
 class Index(ViewBase):
     def get(self, data):
-        print("get from index")
+        resp = Response(status_code=200, headers={}, body={"message": "Stuff!"})
+
+        return resp.to_json()
 
     def put(self, data):
         print("put from index")
@@ -24,7 +28,7 @@ class Index(ViewBase):
 
 
 # a very basic stripped down event
-event = {"httpMethod": "DELETE", "path": "/"}
+event = {"httpMethod": "GET", "path": "/"}
 
 print(router.dispatch(event))
 """

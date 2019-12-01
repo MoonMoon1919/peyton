@@ -37,7 +37,7 @@ class ViewBase:
         )
         return resp.to_json()
 
-    def dispatch(self, http_method, data):
+    def dispatch(self, http_method: str, data: dict):
         # Lower the http_method because it is all caps from API Gateway event
         http_method = http_method.lower()
 

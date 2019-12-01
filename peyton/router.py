@@ -24,7 +24,7 @@ class Router(metaclass=Singleton):
 
     routes: dict = {}
 
-    def register(self, path):
+    def register(self, path: str):
         """A decorator function that registers a class as a view."""
 
         def decorator(_cls):
@@ -34,7 +34,7 @@ class Router(metaclass=Singleton):
 
         return decorator
 
-    def dispatch(self, event):
+    def dispatch(self, event: dict):
         """Handles dispatching all requests made."""
 
         return self.routes[event["path"]].dispatch(

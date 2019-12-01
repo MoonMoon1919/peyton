@@ -17,12 +17,14 @@ class Response:
     headers = Dictionary("headers")
     status_code = Integer("status_code")
 
-    def __init__(self, status_code=None, headers=None, body=None):
+    def __init__(
+        self, status_code: int = None, headers: dict = None, body: dict = None
+    ):
         self.body = body
         self.headers = headers
         self.status_code = status_code
 
-    def to_json(self):
+    def to_json(self) -> dict:
         """Generates responses."""
         response = {
             "body": self.body,

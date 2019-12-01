@@ -9,33 +9,36 @@ class ViewBase:
 
     def get(self, data: dict) -> ResponseObject:
         resp = Response(
-            status_code=400, headers={}, body={"message": "Method not implemented"}
+            status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
     def post(self, data: dict) -> ResponseObject:
         resp = Response(
-            status_code=400, headers={}, body={"message": "Method not implemented"}
+            status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
     def put(self, data: dict) -> ResponseObject:
         resp = Response(
-            status_code=400, headers={}, body={"message": "Method not implemented"}
+            status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
     def patch(self, data: dict) -> ResponseObject:
         resp = Response(
-            status_code=400, headers={}, body={"message": "Method not implemented"}
+            status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
     def delete(self, data: dict) -> ResponseObject:
         resp = Response(
-            status_code=400, headers={}, body={"message": "Method not implemented"}
+            status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def dispatch(self, request_method, data):
-        return getattr(self, request_method)(data)
+    def dispatch(self, http_method, data):
+        # Lower the http_method because it is all caps from API Gateway event
+        http_method = http_method.lower()
+
+        return getattr(self, http_method)(data)

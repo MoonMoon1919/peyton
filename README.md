@@ -1,6 +1,8 @@
 # Peyton
 
-A lightweight framework for AWS Lambda for serving rest APIs
+A lightweight framework for AWS Lambda for building Rest APIs
+
+![](https://media.giphy.com/media/PkFupNjqc4hpe/giphy.gif)
 
 MVP:
 - [x] Class based views

@@ -33,3 +33,21 @@ class Dictionary(Typed):
     """Type checker for Dictionaries."""
 
     expected_type = dict
+
+
+class String(Typed):
+    """Type check for Strings."""
+
+    expected_type = str
+
+
+class List(Typed):
+    """Type checker for Lists."""
+
+    expected_type = list
+
+
+class Boolean(Typed):
+    """Type checker for Boolean."""
+
+    expected_type = bool

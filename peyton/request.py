@@ -1,49 +1,29 @@
 """Module that contains classes for turning a request event into a python object."""
 
+from functools import reduce
+import json
 
-class RequestBase:
-    """Base class for all Request classes."""
-
-    pass
-
-
-class Request(RequestBase):
-    """Top level request class."""
-
-    pass
+# Import our type checkers
+from type_checker import String, List, Dictionary, Boolean
 
 
-class QueryStringParams(RequestBase):
-    """Class for all query String Paramaters, both single and multi value."""
+class Request:
+    body = String("body")
+    resource = String("resource")
+    path = String("path")
+    http_method = String("http_method")
+    is_base64_encoded = Boolean("is_base64_encoded")
+    query_string_parameters = Dictionary("query_string_parameters")
+    multi_value_query_string_parameters = Dictionary(
+        "multi_value_query_string_parameters"
+    )
+    path_parameters = Dictionary("path_parameters")
+    stage_variables = Dictionary("stage_variables")
+    headers = Dictionary("headers")
+    multi_value_headers = Dictionary("multi_value_headers")
+    request_context = Dictionary("request_context")
 
-    pass
-
-
-class PathParameters(RequestBase):
-    """Class for all path parameters."""
-
-    pass
-
-
-class StageVariables(RequestBase):
-    """Class for all Stage Variables."""
-
-    pass
-
-
-class Headers(RequestBase):
-    """Load all headers into an object, both single and multi value."""
-
-    pass
-
-
-class RequestContext(RequestBase):
-    """Load the request context into an object."""
-
-    pass
-
-
-class RequestIdentity(RequestBase):
-    """Load the indentity of the request into an object."""
-
-    pass
+    def __init__(self, event):
+        for k, v in event.items():
+            k = reduce(lambda x, y: x + ("_" if y.isupper() else "") + y, k).lower()
+            setattr(self, k, v)

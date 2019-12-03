@@ -1,22 +1,26 @@
 """Peyton main entrypoint."""
 
 from router import Router
+from request import Request
 
 
 # Singleton
 router = Router()
 
-"""
-Example:
+
+# Example:
 
 from view import ViewBase
 from response import Response
+from request import Request
+import json
+from base64 import b64decode
 
 
 @router.register(path="/")
 class Index(ViewBase):
     def get(self, data):
-        resp = Response(status_code=200, headers={}, body={"message": "Stuff!"})
+        resp = Response(status_code=200, headers={}, body={"message": data.body},)
 
         return resp.to_json()
 
@@ -27,8 +31,8 @@ class Index(ViewBase):
         print("post from index")
 
 
-# a very basic stripped down event
-event = {"httpMethod": "GET", "path": "/"}
+# In this example, we're loading the event from a file
+request = json.load(open("../example_payload.json"))
+request = Request(request)
 
-print(router.dispatch(event))
-"""
+print(router.dispatch(request))

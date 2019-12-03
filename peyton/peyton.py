@@ -7,7 +7,7 @@ from request import Request
 # Singleton
 router = Router()
 
-
+"""
 # Example:
 
 from view import ViewBase
@@ -36,3 +36,4 @@ request = json.load(open("../example_payload.json"))
 request = Request(request)
 
 print(router.dispatch(request))
+"""

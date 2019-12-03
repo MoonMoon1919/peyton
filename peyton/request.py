@@ -1,7 +1,6 @@
 """Module that contains classes for turning a request event into a python object."""
 
 from functools import reduce
-import json
 
 # Import our type checkers
 from type_checker import String, List, Dictionary, Boolean

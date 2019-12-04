@@ -7,6 +7,10 @@ from type_checker import Dictionary, Integer
 
 
 class ResponseObject(TypedDict):
+    """
+    This is here exclusively for type hinting for HTTP Verb function outputs.
+    """
+
     body: dict
     headers: dict
     status_code: int

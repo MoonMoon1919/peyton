@@ -7,31 +7,31 @@ from response import Response, ResponseObject
 class ViewBase:
     """Base class upon which all class based views are built upon."""
 
-    def get(self, data: dict) -> ResponseObject:
+    def get(self, **kwargs) -> ResponseObject:
         resp = Response(
             status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def post(self, data: dict) -> ResponseObject:
+    def post(self, **kwargs) -> ResponseObject:
         resp = Response(
             status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def put(self, data: dict) -> ResponseObject:
+    def put(self, **kwargs) -> ResponseObject:
         resp = Response(
             status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def patch(self, data: dict) -> ResponseObject:
+    def patch(self, **kwargs) -> ResponseObject:
         resp = Response(
             status_code=405, headers={}, body={"message": "Method not implemented"}
         )
         return resp.to_json()
 
-    def delete(self, data: dict) -> ResponseObject:
+    def delete(self, **kwargs) -> ResponseObject:
         resp = Response(
             status_code=405, headers={}, body={"message": "Method not implemented"}
         )
@@ -41,4 +41,12 @@ class ViewBase:
         # Lower the http_method because it is all caps from API Gateway event
         http_method = http_method.lower()
 
-        return getattr(self, http_method)(**kwargs)
+        func = getattr(self, http_method, None)
+
+        # If a method is not implemented, return 405
+        if func is None:
+            return Response(
+                status_code=405, headers={}, body={"message": "Method not implemented"}
+            ).to_json()
+
+        return func(**kwargs)

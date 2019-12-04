@@ -7,7 +7,8 @@ from type_checker import String, List, Dictionary, Boolean
 
 
 class Request:
-    body = String("body")
+    # TO DO: Figure out how to handle multiple types for these..
+    body = Dictionary("body")
     resource = String("resource")
     path = String("path")
     http_method = String("http_method")

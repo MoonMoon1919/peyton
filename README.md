@@ -11,4 +11,5 @@ MVP:
 - [x] Serialized responses to json
 - [x] Include HTTP Status Code + Headers in response
 - [x] Class that turns API Gateway event into python object
-- [ ] Ability to specify variables for endpoints
+- [x] Ability to specify variables for endpoints
+- [ ] Class for URL rules

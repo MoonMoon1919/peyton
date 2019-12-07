@@ -4,7 +4,6 @@
 # Example:
 from view import ViewBase
 from response import Response, ResponseObject
-from request import Request
 from router import Router
 from request import Request
 import json

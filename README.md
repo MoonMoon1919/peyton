@@ -8,40 +8,52 @@ A lightweight framework for AWS Lambda for building Rest APIs
 ## How To
 ```python
 
-from peyton import router
 from peyton.view import ViewBase
 from peyton.response import Response, ResponseObject
 from peyton.request import Request
+from peyton.router import Router
+
+router = Router()
 
 
 @router.register(path="/")
 class Index(ViewBase):
     def get(self) -> ResponseObject:
-        resp = Response(status_code=200, headers={}, body={"message": "hello world!"})
+        resp = Response(status_code=200, headers={}, body={"message": "received GET to index"},)
+
+        return resp.to_json()
+
+    def put(self) -> ResponseObject:
+        resp = Response(status_code=201, headers={}, body={"message": "received PUT to index"})
+
+        return resp.to_json()
+
+    def post(self) -> ResponseObject:
+        resp = Response(status_code=201, headers={}, body={"message": "received POST to index"})
+
+        return resp.to_json()
+
+@router.register(path="/foo/{foo_id}/bar/{bar_id}")
+class AllBars(ViewBase):
+    def get(self, foo_id, bar_id) -> ResponseObject:
+        resp = Response(status_code=200, headers={}, body={"foo_id": foo_id, "bar_id": bar_id, "message": "all bars by foo"},)
+
+        return resp.to_json()
+
+    def put(self, foo_id, bar_id) -> ResponseObject:
+        resp = Response(status_code=201, headers={}, body={"message": "received PUT to index"})
+
+        return resp.to_json()
+
+    def post(self, foo_id, bar_id) -> ResponseObject:
+        resp = Response(status_code=201, headers={}, body={"message": "received POST to index"})
 
         return resp.to_json()
 
 
-@router.register(path="/foo/{id}/bar/{foo_id}")
-class AllBarsByFoo(ViewBase):
-    def get(self, id, foo_id) -> ResponseObject:
-        resp = Response(status_code=200, headers={}, body={"message": "received GET"},)
-
-        return resp.to_json()
-
-    def delete(self, id, foo_id) -> ResponseObject:
-        resp = Response(status_code=202, headers={}, body={"message": "received PUT"})
-
-        return resp.to_json()
-
-    def post(self, id, foo_id) -> ResponseObject:
-        resp = Response(status_code=201, headers={}, body={"message": "received POST"})
-
-        return resp.to_json()
-
-
-def handler(event, context):
-    request = Request(request)
+# In this example, we're loading the event from a file
+def lambda_handler(event, context):
+    request = Request(event)
     return router.dispatch(request)
 ```
 
@@ -58,7 +70,7 @@ MVP:
 - [x] Class for URL rules
 - [ ] In-Line Documentation
 - [ ] Unit Tests
-- [ ] Integration Tests
+- [x] Integration Tests
 - [ ] Style double check
 - [ ] Documentation
 - [ ] Readme Refresh

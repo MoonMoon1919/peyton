@@ -51,7 +51,6 @@ class AllBars(ViewBase):
         return resp.to_json()
 
 
-# In this example, we're loading the event from a file
 def lambda_handler(event, context):
     request = Request(event)
     return router.dispatch(request)

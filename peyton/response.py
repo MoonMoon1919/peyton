@@ -4,7 +4,7 @@ from typing import TypedDict
 import json
 
 # Import our type checkers
-from type_checker import Dictionary, Integer
+from type_checker import Dictionary, Integer, Boolean
 
 
 class ResponseObject(TypedDict):
@@ -12,29 +12,39 @@ class ResponseObject(TypedDict):
     This is here exclusively for type hinting for HTTP Verb function outputs.
     """
 
-    body: dict
+    body: str  # serialized string
     headers: dict
     status_code: int
+    isBase64Encoded: bool
 
 
 class Response:
     body = Dictionary("body")
     headers = Dictionary("headers")
     statusCode = Integer("statusCode")
+    isBase64Encoded = Boolean("isBase64Encoded")
 
     def __init__(
-        self, status_code: int = None, headers: dict = None, body: dict = None
+        self,
+        status_code: int = None,
+        headers: dict = None,
+        body: dict = None,
+        is_base64_encoded: bool = False,
     ):
         self.body = body
         self.headers = headers
         self.statusCode = status_code
+        self.isBase64Encoded = is_base64_encoded
 
     def to_json(self) -> dict:
         """Generates responses."""
+        # TO DO: make body json.dump() optional since just a regular string should be supported as well
+
         response = {
             "body": json.dumps(self.body),
             "headers": self.headers,
             "statusCode": self.statusCode,
+            "isBase64Encoded": self.isBase64Encoded,
         }
 
         return response

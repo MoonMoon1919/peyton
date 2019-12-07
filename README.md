@@ -67,6 +67,7 @@ MVP:
 - [x] Class that turns API Gateway event into python object
 - [x] Ability to specify variables for endpoints
 - [x] Class for URL rules
+- [ ] Logging
 - [ ] In-Line Documentation
 - [ ] Unit Tests
 - [x] Integration Tests

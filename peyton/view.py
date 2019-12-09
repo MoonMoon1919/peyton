@@ -1,7 +1,7 @@
 """Base class for Views."""
 
 # Import our Response class
-from response import Response, ResponseObject
+from peyton.response import Response, ResponseObject
 
 
 class ViewBase:

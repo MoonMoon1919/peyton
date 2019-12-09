@@ -1,0 +1,85 @@
+{
+    "resource": "/api-gateway-test/{id}/foo/{foo_id}",
+    "path": "/api-gateway-test/2/foo/bar",
+    "httpMethod": "GET",
+    "headers": {
+        "accept": "*/*",
+        "content-type": "application/json",
+        "Host": "foofoo.execute-api.us-west-2.amazonaws.com",
+        "User-Agent": "curl/7.54.0",
+        "X-Amzn-Trace-Id": "Root=1-5de710d1-8df825c3a37a2bfaf3df076f",
+        "X-Forwarded-For": "1.2.3.4",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "accept": [
+            "*/*"
+        ],
+        "content-type": [
+            "application/json"
+        ],
+        "Host": [
+            "foofoo.execute-api.us-west-2.amazonaws.com"
+        ],
+        "User-Agent": [
+            "curl/7.54.0"
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-5de710d1-8df825c3a37a2bfaf3df076f"
+        ],
+        "X-Forwarded-For": [
+            "1.2.3.4"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": {},
+    "multiValueQueryStringParameters": {},
+    "pathParameters": {
+        "foo_id": "bar",
+        "id": "2"
+    },
+    "stageVariables": {
+        "version": "v-beta",
+        "function": "backend-api:foo"
+    },
+    "requestContext": {
+        "resourceId": "j750ua",
+        "resourcePath": "/api-gateway-test/{id}/foo/{foo_id}",
+        "httpMethod": "POST",
+        "extendedRequestId": "EJ-QzHjgPHcFRVw=",
+        "requestTime": "04/Dec/2019:01:50:09 +0000",
+        "path": "/test/api-gateway-test/2/foo/bar",
+        "accountId": "123456789012",
+        "protocol": "HTTP/1.1",
+        "stage": "test",
+        "domainPrefix": "foofoo",
+        "requestTimeEpoch": 1575424209846,
+        "requestId": "80f5b78a-7c1b-4422-beed-07915bf7a5b8",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "1.2.3.4",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "curl/7.54.0",
+            "user": null
+        },
+        "domainName": "foofoo.execute-api.us-west-2.amazonaws.com",
+        "apiId": "foofoo"
+    },
+    "body": {
+        "foo": "bar"
+    },
+    "isBase64Encoded": false
+}

@@ -3,7 +3,7 @@
 from functools import reduce
 
 # Import our type checkers
-from type_checker import String, List, Dictionary, Boolean
+from peyton.type_checker import String, List, Dictionary, Boolean
 
 
 class Request:

@@ -1,7 +1,7 @@
 """Router module for Petyon."""
 
-from helpers import Singleton
-from response import Response
+from peyton.helpers import Singleton
+from peyton.response import Response
 
 
 class Router(metaclass=Singleton):

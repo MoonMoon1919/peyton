@@ -4,7 +4,7 @@ from typing import TypedDict
 import json
 
 # Import our type checkers
-from type_checker import Dictionary, Integer, Boolean
+from peyton.type_checker import Dictionary, Integer, Boolean
 
 
 class ResponseObject(TypedDict):

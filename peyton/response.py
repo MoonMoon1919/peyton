@@ -26,9 +26,9 @@ class Response:
 
     def __init__(
         self,
-        status_code: int = None,
-        headers: dict = None,
-        body: dict = None,
+        status_code: int = 200,
+        headers: dict = {},
+        body: dict = {},
         is_base64_encoded: bool = False,
     ):
         self.body = body

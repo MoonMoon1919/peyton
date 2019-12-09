@@ -11,43 +11,53 @@ class DescriptorBase:
         instance.__dict__[self.name] = value
 
 
-class Typed(DescriptorBase):
+def typed(expected_type, cls=None):
     """Base Type checker class."""
+    if cls is None:
+        return lambda cls: typed(expected_type, cls)
 
-    expected_type = None
+    super_set = cls.__set__
 
     def __set__(self, instance, val):
-        if not isinstance(val, self.expected_type):
+        if not isinstance(val, expected_type):
             raise TypeError("Expected " + str(self.expected_type))
+        super_set(self, instance, val)
 
-        super().__set__(instance, val)
+    cls.__set__ = __set__
+
+    return cls
 
 
-class Integer(Typed):
+@typed(int)
+class Integer(DescriptorBase):
     """Type checker for integers."""
 
-    expected_type = int
+    pass
 
 
-class Dictionary(Typed):
+@typed(dict)
+class Dictionary(DescriptorBase):
     """Type checker for Dictionaries."""
 
-    expected_type = dict
+    pass
 
 
-class String(Typed):
+@typed(str)
+class String(DescriptorBase):
     """Type check for Strings."""
 
-    expected_type = str
+    pass
 
 
-class List(Typed):
+@typed(list)
+class List(DescriptorBase):
     """Type checker for Lists."""
 
-    expected_type = list
+    pass
 
 
-class Boolean(Typed):
+@typed(bool)
+class Boolean(DescriptorBase):
     """Type checker for Boolean."""
 
-    expected_type = bool
+    pass

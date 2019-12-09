@@ -74,3 +74,15 @@ MVP:
 - [ ] Style double check
 - [ ] Documentation
 - [ ] Readme Refresh
+
+---
+
+Logging:
+- Log all requests with the following:
+ - Requesting IP
+ - Request Method
+ - Endpoint
+ - Request Time
+ - URL
+ - Message
+ - HTTP Method

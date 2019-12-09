@@ -30,9 +30,13 @@ class Index(ViewBase):
         return resp.to_json()
 
 
-# In this example, we're loading the event from a file
-request = json.load(open("../example_json.json"))
-request = Request(request)
+def handler(event, context):
+    # In this example, we're loading the event from a file
+    request = Request(event)
 
-print(router.dispatch(request))
+    return router.dispatch(request)
+
+
+event = json.load(open("../example_json.json"))
+handler(event, "context")
 """

@@ -3,6 +3,8 @@
 import sys
 from os import path
 import json
+import base64
+
 import pytest
 
 from peyton.response import Response
@@ -40,3 +42,16 @@ def test_status_code_type():
     """Tests that response object balks on improper type for status_code."""
     with pytest.raises(TypeError):
         resp = Response(status_code="foo", headers={}, body={"message": "received GET"})
+
+
+def test_base64_encoding():
+    resp = Response(
+        status_code=200,
+        headers={},
+        body={"message": "received GET"},
+        base64_encode=True,
+    )
+
+    resp = resp.to_json()
+
+    assert resp["body"] == b"eyJtZXNzYWdlIjogInJlY2VpdmVkIEdFVCJ9"

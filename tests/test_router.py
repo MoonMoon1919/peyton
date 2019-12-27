@@ -39,6 +39,15 @@ def prepare_router():
 
             return resp.to_json()
 
+    @router.register("/foo/{foo_id}/bar/{bar_id}")
+    class BarIdByFoo(ViewBase):
+        def put(self, foo_id, bar_id):
+            resp = Response(
+                status_code=200, headers={}, body={"message": "received PUT"}
+            )
+
+            return resp.to_json()
+
     return router
 
 
@@ -102,5 +111,35 @@ def test_dispatch():
         "statusCode": 200,
         "headers": {},
         "body": '{"message": "received GET"}',
+        "isBase64Encoded": False,
+    }
+
+
+def test_path_params():
+    """Tests to ensure path params are created from path."""
+    router = prepare_router()
+
+    route = router.routes["/foo/{foo_id}/bar/{bar_id}"]
+    assert route.path_params == ["foo_id", "bar_id"]
+
+
+def test_dispatch_with_params():
+    """Test dispatch method with parameters."""
+    req = retrieve_fixture()
+
+    # Modify the request object for scope of test
+    req = Request(req)
+    req.resource = "/foo/{foo_id}"
+    req.path = "/foo/{foo_id}"
+    req.path_parameters = {"foo_id": 2}
+    req.http_method = "PUT"
+
+    router = prepare_router()
+    resp = router.dispatch(req)
+
+    assert resp == {
+        "statusCode": 200,
+        "headers": {},
+        "body": '{"message": "received PUT"}',
         "isBase64Encoded": False,
     }

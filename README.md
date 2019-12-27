@@ -67,13 +67,13 @@ MVP:
 - [x] Class that turns API Gateway event into python object
 - [x] Ability to specify variables for endpoints
 - [x] Class for URL rules
+- [ ] Re-implement url map to use radix trie
 - [ ] Logging
 - [ ] In-Line Documentation
 - [ ] Unit Tests
 - [x] Integration Tests
 - [ ] Style double check
 - [ ] Documentation
-- [ ] Readme Refresh
 
 ---
 

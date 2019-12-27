@@ -67,6 +67,7 @@ MVP:
 - [x] Class that turns API Gateway event into python object
 - [x] Ability to specify variables for endpoints
 - [x] Class for URL rules
+- [ ] Automatically decode base64 encoded input
 - [ ] Re-implement url map to use radix trie
 - [ ] Logging
 - [ ] In-Line Documentation

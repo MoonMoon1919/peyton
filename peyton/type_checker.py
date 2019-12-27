@@ -20,7 +20,7 @@ def typed(expected_type, cls=None):
 
     def __set__(self, instance, val):
         if not isinstance(val, expected_type):
-            raise TypeError("Expected " + str(self.expected_type))
+            raise TypeError("Expected " + str(expected_type))
         super_set(self, instance, val)
 
     cls.__set__ = __set__

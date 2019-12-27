@@ -3,6 +3,7 @@
 import sys
 from os import path
 import json
+import pytest
 
 from peyton.response import Response
 
@@ -27,3 +28,15 @@ def test_response_obj():
 
     # Test output of to_json()
     assert type(j["body"]) == str
+
+
+def test_body_type():
+    """Tests that response object balks on improper type for body."""
+    with pytest.raises(TypeError):
+        resp = Response(status_code=200, headers={}, body="hello world")
+
+
+def test_status_code_type():
+    """Tests that response object balks on improper type for status_code."""
+    with pytest.raises(TypeError):
+        resp = Response(status_code="foo", headers={}, body={"message": "received GET"})

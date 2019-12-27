@@ -3,6 +3,7 @@
 import sys
 from os import path
 import json
+import pytest
 
 from peyton.request import Request
 
@@ -38,3 +39,12 @@ def test_request_obj():
         converted_dict[k] = v
 
     assert converted_dict == data
+
+
+def test_body_type():
+    """Tests that request object will fail if data["body"] is type string."""
+    data = retrieve_fixture()
+    data["body"] = "foo"
+
+    with pytest.raises(TypeError):
+        request = Request(data)

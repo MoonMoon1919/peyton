@@ -1,6 +1,7 @@
 """Router module for Petyon."""
 
 from peyton.helpers import Singleton
+from peyton.logger import log
 from peyton.response import Response
 
 
@@ -47,7 +48,8 @@ class Router(metaclass=Singleton):
 
         return decorator
 
-    def dispatch(self, request: dict):
+    @log
+    def dispatch(self, request: dict = None):
         """Handles dispatching all requests made."""
         resource = self.routes.get(request.resource, None)
 

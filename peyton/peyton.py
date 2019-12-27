@@ -1,5 +1,4 @@
 """Peyton main entrypoint."""
-
 """
 # Example:
 from view import ViewBase
@@ -34,9 +33,9 @@ def handler(event, context):
     # In this example, we're loading the event from a file
     request = Request(event)
 
-    return router.dispatch(request)
+    return router.dispatch(request=request)
 
 
-event = json.load(open("../example_json.json"))
+event = json.load(open("../example_payload.json"))
 handler(event, "context")
 """

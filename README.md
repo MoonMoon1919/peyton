@@ -53,7 +53,7 @@ class AllBars(ViewBase):
 
 def lambda_handler(event, context):
     request = Request(event)
-    return router.dispatch(request)
+    return router.dispatch(request=request)
 ```
 
 ---
@@ -68,7 +68,7 @@ MVP:
 - [x] Ability to specify variables for endpoints
 - [x] Class for URL rules
 - [x] Automatically decode base64 encoded input
-- [ ] Logging
+- [x] Logging
 - [x] In-Line Documentation
 - [x] Unit Tests
 - [x] Integration Tests
@@ -80,15 +80,3 @@ Roadmap:
 - [ ] Re-implement url map to use radix trie
 - [ ] Add support for HTTP API type
 - [ ] Add support for Lambda behind ALB
-
----
-
-Logging:
-- Log all requests with the following:
- - Requesting IP
- - Request Method
- - Endpoint
- - Request Time
- - URL
- - Message
- - HTTP Method

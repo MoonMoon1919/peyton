@@ -87,7 +87,7 @@ def test_route_does_not_exist():
     req = Request(req)
 
     router = prepare_router()
-    resp = router.dispatch(req)
+    resp = router.dispatch(request=req)
 
     assert resp == {
         "statusCode": 404,
@@ -105,7 +105,7 @@ def test_dispatch():
     req.path = "/"
 
     router = prepare_router()
-    resp = router.dispatch(req)
+    resp = router.dispatch(request=req)
 
     assert resp == {
         "statusCode": 200,
@@ -135,7 +135,7 @@ def test_dispatch_with_params():
     req.http_method = "PUT"
 
     router = prepare_router()
-    resp = router.dispatch(req)
+    resp = router.dispatch(request=req)
 
     assert resp == {
         "statusCode": 200,

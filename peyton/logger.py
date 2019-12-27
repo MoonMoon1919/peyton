@@ -1,6 +1,5 @@
 """Logging module for Peyton."""
 
-from datetime import datetime
 from functools import wraps
 import logging
 import os
@@ -31,7 +30,6 @@ def log(fn):
                 "path": kwargs["request"].path,
                 "http_user_agent": kwargs["request"].headers["User-Agent"],
                 "http_method": kwargs["request"].http_method,
-                "request_end": datetime.now().strftime("%d/%b/%Y:%H:%M:%S +0000"),
             }
         )
 

@@ -4,6 +4,7 @@ GIT_SHA := `git rev-parse --short HEAD`
 REQ_CHECK_CMD := pipenv run pip check
 SAFETY_CHECK_CMD := safety check --full-report
 BLACK_SET_CMD := black .
+TEST_CMD := pytest -s tests/
 
 sha:
 	@echo $(GIT_SHA)
@@ -16,3 +17,6 @@ check/reqs:
 
 check/safety:
 	@$(SAFETY_CHECK_CMD)
+
+test:
+	@$(TEST_CMD)

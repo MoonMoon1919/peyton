@@ -7,8 +7,14 @@ import json
 from peyton.router import Router, UrlRule
 from peyton.view import ViewBase
 from peyton.response import Response
+from peyton.request import Request
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+
+def retrieve_fixture():
+    j = json.load(open("./tests/fixtures/example_json.json"))
+    return j
 
 
 def prepare_router():
@@ -66,6 +72,35 @@ def test_route_execution():
     )
 
 
+def test_route_does_not_exist():
+    """Tests for a route that does not exist."""
+    req = retrieve_fixture()
+    req = Request(req)
+
+    router = prepare_router()
+    resp = router.dispatch(req)
+
+    assert resp == {
+        "statusCode": 404,
+        "headers": {},
+        "body": '{"message": "Endpoint not found"}',
+        "isBase64Encoded": False,
+    }
+
+
 def test_dispatch():
     """Test dispatch method."""
-    pass
+    req = retrieve_fixture()
+    req = Request(req)
+    req.resource = "/"
+    req.path = "/"
+
+    router = prepare_router()
+    resp = router.dispatch(req)
+
+    assert resp == {
+        "statusCode": 200,
+        "headers": {},
+        "body": '{"message": "received GET"}',
+        "isBase64Encoded": False,
+    }

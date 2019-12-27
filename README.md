@@ -71,7 +71,7 @@ MVP:
 - [ ] Re-implement url map to use radix trie
 - [ ] Logging
 - [ ] In-Line Documentation
-- [ ] Unit Tests
+- [x] Unit Tests
 - [x] Integration Tests
 - [ ] Style double check
 - [ ] Documentation

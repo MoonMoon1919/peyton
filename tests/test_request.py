@@ -48,3 +48,15 @@ def test_body_type():
 
     with pytest.raises(TypeError):
         request = Request(data)
+
+
+def test_base64_encode():
+    """Tests that request object can successfully decode base64 message body."""
+
+    data = retrieve_fixture()
+    data["body"] = "eyJ0ZXN0IjoiYm9keSJ9"
+    data["isBase64Encoded"] = True
+
+    req = Request(data)
+
+    assert req.body == {"test": "body"}

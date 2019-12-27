@@ -15,7 +15,7 @@ router = Router()
 @router.register(path="/api-gateway-test/{id}/foo/{foo_id}")
 class Index(ViewBase):
     def get(self, id, foo_id) -> ResponseObject:
-        resp = Response(status_code=200, headers={}, body={"message": "received GET"},)
+        resp = Response(status_code=200, headers={}, body={"message": "received GET"})
 
         return resp.to_json()
 

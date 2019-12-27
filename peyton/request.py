@@ -9,6 +9,18 @@ from peyton.type_checker import String, List, Dictionary, Boolean
 
 
 class Request:
+    """An object that represents an incoming request.
+
+    Usage:
+        Use this class to load the event object passed into your lambda handler into a pythonic object
+
+    Args:
+        event: dict = the "event" object passed into the lambda handler.
+
+    Raises:
+        TypeError: If any objects type is incorrect according to class variable descriptors
+    """
+
     # TO DO: Figure out how to handle multiple types for these..
     body = Dictionary("body")
     resource = String("resource")

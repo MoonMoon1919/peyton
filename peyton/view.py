@@ -5,7 +5,22 @@ from peyton.response import Response, ResponseObject
 
 
 class ViewBase:
-    """Base class upon which all class based views are built upon."""
+    """Base class upon which all class based views are built upon.
+
+    Usage:
+        Subclass this class to create a view that contains your business logic.
+
+        After creating your class and adding business logic you can register
+        the class with the router you have created. When your lambda is invoked the event is
+        loaded into a request object using the "resource" for path. The router calls its own dispatch method
+        which will attempt to load a UrlRule. The UrlRule contains a reference to your class.
+        From there the router dispatch method calls the View dispatch method, which, based on the HTTP method,
+        will invoke the correct method containing your business logic.
+
+    Returns:
+        Dict: Returns the to_json() method of a response object (see response.py for all attributes)
+              if a supported HTTP method verb does not exist
+    """
 
     def get(self, **kwargs) -> ResponseObject:
         resp = Response(

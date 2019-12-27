@@ -5,7 +5,36 @@ from peyton.response import Response
 
 
 class Router(metaclass=Singleton):
-    """Router class that handles view registration and request dispatching"""
+    """Router object that handles view registration and request dispatching.
+
+    Usage:
+        The most common usage is to create a router object then use the register method
+        to register classes to a path
+
+        router = Router()
+
+        @router.register("/")
+        class BasicIndex(ViewBase):
+            def get(self):
+                resp = Response(
+                    status_code=200, headers={}, body={"message": "received GET"}
+                )
+
+                return resp.to_json()
+
+        When a request is received, load the request into a Request object (see request.py)
+        then pass it into the dispatch method of the router to call the class and specific verb based method
+        req = Request(event)
+
+        resp = router.dispatch(req)
+
+        return resp
+    Args:
+        None
+
+    Raises:
+        None
+    """
 
     routes: dict = {}
 

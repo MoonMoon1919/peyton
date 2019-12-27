@@ -20,6 +20,22 @@ class ResponseObject(TypedDict):
 
 
 class Response:
+    """An object that represents a response from an API.
+
+    Usage:
+        After running your business logic and creating the body/message you want to return to your client
+        Use this class to create a response object, then use to_json() to serialize the response
+
+    Args:
+        status_code: int = an HTTP Status Code
+        headers: dict = a dictionary of headers
+        body: dict = a dictionary, typically data
+        base64_encode: bool = a flag that will base64 encode the body string passed in
+
+    Raises:
+        TypeError: If any objects type is incorrect according to class variable descriptors
+    """
+
     body = Dictionary("body")
     headers = Dictionary("headers")
     statusCode = Integer("statusCode")

@@ -14,7 +14,16 @@ def test_response_obj():
     j = resp.to_json()
 
     assert resp.statusCode == 200
+    assert type(resp.statusCode) == int
+
     assert resp.headers == {}
+    assert type(resp.headers) == dict
+
     assert resp.isBase64Encoded == False
+    assert type(resp.isBase64Encoded) == bool
+
     assert resp.body["message"] == "received GET"
+    assert type(resp.body) == dict
+
+    # Test output of to_json()
     assert type(j["body"]) == str

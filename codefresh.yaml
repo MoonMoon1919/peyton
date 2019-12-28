@@ -45,6 +45,10 @@ steps:
   build_and_push_package:
     title: "Build package and push to CloudRepo"
     image: "${{build}}"
+    environment:
+      - REPOSITORY_URL=${{REPOSITORY_URL}}
+      - REPOSITORY_USERNAME=${{REPOSITORY_USERNAME}}
+      - REPOSITORY_PASSWORD=${{REPOSITORY_PASSWORD}}
     commands:
       - "make build/package"
       - "make upload/package"

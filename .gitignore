@@ -3,3 +3,6 @@
 scratch.py
 example_payload.json
 *.zip
+*.gz
+peyton.egg-info/*
+MANIFEST

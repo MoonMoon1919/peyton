@@ -1,0 +1,6 @@
+exclude .git/*
+exclude .vscode/*
+exclude docs/*
+exclude tests/*
+exclude .mypy_cache/*
+exclude .pytest_cache/*

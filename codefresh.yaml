@@ -1,0 +1,25 @@
+version: "1.0"
+stages:
+  - "clone"
+  - "build"
+  - "test"
+steps:
+  main_clone:
+    type: "git-clone"
+    description: "Cloning main repository..."
+    repo: "MoonMoon1919/peyton"
+    revision: "${{CF_BRANCH}}"
+    stage: "clone"
+  build:
+    title: "Building test Docker Image"
+    type: "build"
+    image_name: "MoonMoon1919/peyton"
+    tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
+    dockerfile: "Dockerfile"
+    stage: "build"
+  test:
+    title: "Run PyTest"
+    image: "${{build}}"
+    commands:
+    	- "make test"
+    stage: "test"

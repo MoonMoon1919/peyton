@@ -2,6 +2,8 @@
 
 A lightweight framework for AWS Lambda for building Rest APIs
 
+[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/moonmoon1919/peyton%2Ftest?key=eyJhbGciOiJIUzI1NiJ9.NWIyYThiMjYzYmFlOGEwMDAxY2RiZWZh.5h81Od2ooleQPSDJ1tUbMIrDYzxsRi3ovMy-NHkYNdY&type=cf-2)]( https%3A%2F%2Fg.codefresh.io%2Fpipelines%2Ftest%2Fbuilds%3Ffilter%3Dtrigger%3Abuild~Build%3Bpipeline%3A5e0699826e1ebef7fcd37bf6~test)
+
 ![](https://media.giphy.com/media/PkFupNjqc4hpe/giphy.gif)
 
 ---

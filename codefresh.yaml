@@ -43,9 +43,9 @@ steps:
         all:
           noSkipCiInCommitMessage: 'includes(lower("${{CF_COMMIT_MESSAGE}}"), "skip ci") == false'
   build_and_push_package:
-    title: "Push to CloudRepo"
+    title: "Build package and push to CloudRepo"
     image: "${{build}}"
-    comands:
+    commands:
       - "make build/package"
       - "make upload/package"
     stage: "deploy"

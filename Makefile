@@ -36,6 +36,9 @@ build/test/image:
 run/test/image: build/test/image
 	@$(DOCKER_RUN_CMD) $(IMAGE_NAME):$(GIT_SHA) make test
 
+run/package/image: build/test/image
+	@$(DOCKER_RUN_CMD) $(IMAGE_NAME):$(GIT_SHA) make build/package
+
 build/package:
 	@$(PACKAGE_CMD)
 

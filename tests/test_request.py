@@ -60,3 +60,14 @@ def test_base64_encode():
     req = Request(data)
 
     assert req.body == {"test": "body"}
+
+
+def test_none_types():
+    data = retrieve_fixture()
+    data["body"] = None
+    data["queryStringParameters"] = None
+    data["multiValueQueryStringParameters"] = None
+    data["pathParameters"] = None
+    data["stageVariables"] = None
+
+    req = Request(data)

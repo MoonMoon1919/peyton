@@ -21,7 +21,6 @@ class Request:
         TypeError: If any objects type is incorrect according to class variable descriptors
     """
 
-    # TO DO: Figure out how to handle multiple types for these..
     body = Dictionary("body")
     resource = String("resource")
     path = String("path")

@@ -37,7 +37,9 @@ def typed(expected_type, cls=None):
             TypeError: in the event the type of the val is not the same as the expected type
         """
         if not isinstance(val, expected_type):
-            raise TypeError("Expected " + str(expected_type))
+            # API Gateway sends None in the event of no data, account for it
+            if val is not None:
+                raise TypeError("Expected " + str(expected_type))
         super_set(self, instance, val)
 
     cls.__set__ = __set__

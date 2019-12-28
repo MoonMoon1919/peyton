@@ -6,3 +6,5 @@ example_payload.json
 *.gz
 peyton.egg-info/*
 MANIFEST
+build/*
+dist/*

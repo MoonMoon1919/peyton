@@ -3,6 +3,7 @@ stages:
   - "clone"
   - "build"
   - "test"
+  - "deploy"
 steps:
   main_clone:
     type: "git-clone"
@@ -17,9 +18,39 @@ steps:
     tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
     dockerfile: "Dockerfile"
     stage: "build"
-  test:
-    title: "Run PyTest"
-    image: "${{build}}"
-    commands:
-    	- "make test"
+  run_all_checks:
+    type: "parallel"
     stage: "test"
+    steps:
+      run_tests:
+        title: "Run PyTest"
+        image: "${{build}}"
+        commands:
+          - "make test"
+        stage: "test"
+      run_safety:
+        title: "Run Safety"
+        image: "${{build}}"
+        commands:
+          - "make check/safety"
+      run_format_check:
+        title: "Run Formatting Check"
+        image: "${{build}}"
+        commands:
+          - "make check/format"
+    when:
+      condition:
+        all:
+          noSkipCiInCommitMessage: 'includes(lower("${{CF_COMMIT_MESSAGE}}"), "skip ci") == false'
+  build_and_push_package:
+    title: "Push to CloudRepo"
+    image: "${{build}}"
+    comands:
+      - "make build/package"
+      - "make upload/package"
+    stage: "deploy"
+    when:
+      condition:
+        all:
+          noSkipCiInCommitMessage: 'includes(lower("${{CF_COMMIT_MESSAGE}}"), "no push") == false'
+          masterBranch: '"${{CF_BRANCH}}" == "master"'

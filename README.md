@@ -95,6 +95,7 @@ MVP:
 - [x] Unit Tests
 - [x] Integration Tests
 - [x] Style double check
+- [ ] Error out on naming collisions for classes
 
 ---
 

@@ -46,6 +46,13 @@ class Request:
                     base64.b64decode(event["body"]).decode("utf-8")
                 )
 
+        if event["headers"].get("Content-Type"):
+            if event["headers"]["Content-Type"].startswith("application/json"):
+                try:
+                    event["body"] = json.loads(event["body"])
+                except ValueError:
+                    pass
+
         for k, v in event.items():
             k = reduce(lambda x, y: x + ("_" if y.isupper() else "") + y, k).lower()
             setattr(self, k, v)

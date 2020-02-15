@@ -55,6 +55,7 @@ def test_base64_encode():
 
     data = retrieve_fixture()
     data["body"] = "eyJ0ZXN0IjoiYm9keSJ9"
+    data["headers"]["Content-Type"] = "text/html"
     data["isBase64Encoded"] = True
 
     req = Request(data)
@@ -65,6 +66,7 @@ def test_base64_encode():
 def test_none_types():
     data = retrieve_fixture()
     data["body"] = None
+    data["headers"]["Content-Type"] = "text/html"
     data["queryStringParameters"] = None
     data["multiValueQueryStringParameters"] = None
     data["pathParameters"] = None

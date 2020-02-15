@@ -3,8 +3,8 @@
     "path": "/api-gateway-test/2/foo/bar",
     "httpMethod": "GET",
     "headers": {
-        "accept": "*/*",
-        "content-type": "application/json",
+        "Accept": "*/*",
+        "Content-Type": "application/json",
         "Host": "foofoo.execute-api.us-west-2.amazonaws.com",
         "User-Agent": "curl/7.54.0",
         "X-Amzn-Trace-Id": "Root=1-5de710d1-8df825c3a37a2bfaf3df076f",
@@ -13,10 +13,10 @@
         "X-Forwarded-Proto": "https"
     },
     "multiValueHeaders": {
-        "accept": [
+        "Accept": [
             "*/*"
         ],
-        "content-type": [
+        "Content-Type": [
             "application/json"
         ],
         "Host": [
@@ -78,8 +78,6 @@
         "domainName": "foofoo.execute-api.us-west-2.amazonaws.com",
         "apiId": "foofoo"
     },
-    "body": {
-        "foo": "bar"
-    },
+    "body": "{\"foo\": \"bar\"}",
     "isBase64Encoded": false
 }

@@ -22,6 +22,9 @@ class ViewBase:
               if a supported HTTP method verb does not exist
     """
 
+    def __init__(self):
+        current_request = None
+
     def get(self, **kwargs) -> ResponseObject:
         resp = Response(
             status_code=405, headers={}, body={"message": "Method not implemented"}

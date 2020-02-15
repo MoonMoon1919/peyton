@@ -39,6 +39,18 @@ def prepare_router():
 
             return resp.to_json()
 
+        def post(self, foo_id):
+            resp = Response(
+                status_code=201,
+                headers={},
+                body={
+                    "message": "received the following data %s"
+                    % router.current_request.body
+                },
+            )
+
+            return resp.to_json()
+
     @router.register("/foo/{foo_id}/bar/{bar_id}")
     class BarIdByFoo(ViewBase):
         def put(self, foo_id, bar_id):
@@ -141,5 +153,25 @@ def test_dispatch_with_params():
         "statusCode": 200,
         "headers": {},
         "body": '{"message": "received PUT"}',
+        "isBase64Encoded": False,
+    }
+
+
+def test_dispatch_with_body():
+    req = retrieve_fixture()
+
+    req = Request(req)
+    req.resource = "/foo/{foo_id}"
+    req.path = "/foo/{foo_id}"
+    req.path_parameters = {"foo_id": 2}
+    req.http_method = "POST"
+
+    router = prepare_router()
+    resp = router.dispatch(request=req)
+
+    assert resp == {
+        "body": "{\"message\": \"received the following data {'foo': 'bar'}\"}",
+        "headers": {},
+        "statusCode": 201,
         "isBase64Encoded": False,
     }

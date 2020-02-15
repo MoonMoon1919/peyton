@@ -39,6 +39,9 @@ class Router(metaclass=Singleton):
 
     routes: dict = {}
 
+    def __init__(self):
+        self.current_request = None
+
     def register(self, path: str):
         """A decorator function that registers a class as a view."""
 
@@ -51,6 +54,8 @@ class Router(metaclass=Singleton):
     @log
     def dispatch(self, request: dict = None):
         """Handles dispatching all requests made."""
+        self.current_request = request
+
         resource = self.routes.get(request.resource, None)
 
         # Account for the possibility of a resource not being registered

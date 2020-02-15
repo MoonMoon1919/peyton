@@ -26,11 +26,21 @@ class Index(ViewBase):
         return resp.to_json()
 
     def put(self) -> ResponseObject:
+        # Retrieve the body from the request
+        body = router.current_request.body
+
+        # Do something with the body
+
         resp = Response(status_code=201, headers={}, body={"message": "received PUT to index"})
 
         return resp.to_json()
 
     def post(self) -> ResponseObject:
+        # Retrieve the body from the request
+        body = router.current_request.body
+
+        # Do something with the body
+
         resp = Response(status_code=201, headers={}, body={"message": "received POST to index"})
 
         return resp.to_json()
@@ -43,11 +53,21 @@ class AllBars(ViewBase):
         return resp.to_json()
 
     def put(self, foo_id, bar_id) -> ResponseObject:
+        # Retrieve the body from the request
+        body = router.current_request.body
+
+        # Do something with the body
+
         resp = Response(status_code=201, headers={}, body={"message": "received PUT to index"})
 
         return resp.to_json()
 
     def post(self, foo_id, bar_id) -> ResponseObject:
+        # Retrieve the body from the request
+        body = router.current_request.body
+
+        # Do something with the body
+
         resp = Response(status_code=201, headers={}, body={"message": "received POST to index"})
 
         return resp.to_json()

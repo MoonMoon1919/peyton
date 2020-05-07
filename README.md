@@ -6,6 +6,9 @@ A lightweight framework for AWS Lambda for building Rest APIs
 
 ![](https://media.giphy.com/media/PkFupNjqc4hpe/giphy.gif)
 
+Currently Peyton supports
+[v1.0 of the API Gateway Payload format](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) and has been tested with both HTTP and REST APIs.
+
 ---
 ## How To
 ```python
@@ -99,6 +102,4 @@ MVP:
 ---
 
 Roadmap:
-- [ ] Re-implement url map to use radix trie
-- [ ] Add support for HTTP API type
 - [ ] Add support for Lambda behind ALB

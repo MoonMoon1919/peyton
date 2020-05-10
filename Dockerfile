@@ -1,4 +1,4 @@
-FROM python:3.8.1-alpine3.11
+FROM python:3.8.2-alpine3.11
 
 RUN apk add --update build-base bash libffi-dev openssl-dev && pip install pipenv setuptools wheel twine
 

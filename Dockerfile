@@ -1,6 +1,7 @@
 FROM python:3.8.2-alpine3.11
 
-RUN apk add --update build-base bash libffi-dev openssl-dev && pip install pipenv setuptools wheel twine
+RUN apk add --update build-base bash libffi-dev openssl-dev
+RUN pip install --upgrade pipenv setuptools wheel twine
 
 RUN mkdir app
 

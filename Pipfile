@@ -9,6 +9,7 @@ safety = "*"
 pytest = "*"
 
 [packages]
+pipenv = "*"
 
 [requires]
 python_version = "3.8"

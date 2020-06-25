@@ -104,6 +104,7 @@ def test_route_does_not_exist():
     assert resp == {
         "statusCode": 404,
         "headers": {},
+        "multiValueHeaders": {},
         "body": '{"message": "Endpoint not found"}',
         "isBase64Encoded": False,
     }
@@ -122,6 +123,7 @@ def test_dispatch():
     assert resp == {
         "statusCode": 200,
         "headers": {},
+        "multiValueHeaders": {},
         "body": '{"message": "received GET"}',
         "isBase64Encoded": False,
     }
@@ -152,6 +154,7 @@ def test_dispatch_with_params():
     assert resp == {
         "statusCode": 200,
         "headers": {},
+        "multiValueHeaders": {},
         "body": '{"message": "received PUT"}',
         "isBase64Encoded": False,
     }
@@ -172,6 +175,7 @@ def test_dispatch_with_body():
     assert resp == {
         "body": "{\"message\": \"received the following data {'foo': 'bar'}\"}",
         "headers": {},
+        "multiValueHeaders": {},
         "statusCode": 201,
         "isBase64Encoded": False,
     }

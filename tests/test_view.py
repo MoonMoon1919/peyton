@@ -47,6 +47,7 @@ def test_2xx_view_dispatch():
     assert resp == {
         "statusCode": 200,
         "headers": {},
+        "multiValueHeaders": {},
         "body": '{"message": "received GET"}',
         "isBase64Encoded": False,
     }
@@ -63,6 +64,7 @@ def test_405_view_dispatch():
     assert resp == {
         "statusCode": 405,
         "headers": {},
+        "multiValueHeaders": {},
         "body": '{"message": "Method not implemented"}',
         "isBase64Encoded": False,
     }

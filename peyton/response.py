@@ -45,11 +45,13 @@ class Response:
         self,
         status_code: int = 200,
         headers: dict = {},
+        multiValueHeaders: dict = {},
         body: dict = {},
         base64_encode: bool = False,
     ):
         self.body = body
         self.headers = headers
+        self.multiValueHeaders = multiValueHeaders
         self.statusCode = status_code
         self.isBase64Encoded = base64_encode
 
@@ -65,6 +67,7 @@ class Response:
         response = {
             "body": resp_body,
             "headers": self.headers,
+            "multiValueHeaders": self.multiValueHeaders,
             "statusCode": self.statusCode,
             "isBase64Encoded": self.isBase64Encoded,
         }

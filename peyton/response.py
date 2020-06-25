@@ -38,6 +38,7 @@ class Response:
 
     body = Dictionary("body")
     headers = Dictionary("headers")
+    multiValueHeaders = Dictionary("multiValueHeaders")
     statusCode = Integer("statusCode")
     isBase64Encoded = Boolean("isBase64Encoded")
 

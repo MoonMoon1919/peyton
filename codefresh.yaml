@@ -18,6 +18,7 @@ steps:
     tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
     dockerfile: "Dockerfile"
     stage: "build"
+    registry: "docker"
   run_all_checks:
     type: "parallel"
     stage: "test"

@@ -59,8 +59,6 @@ class Response:
 
     def to_json(self) -> dict:
         """Generates responses."""
-        # TO DO: make body json.dump() optional since just a regular string should be supported as well
-
         resp_body = json.dumps(self.body)
 
         if self.isBase64Encoded:

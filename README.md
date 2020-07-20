@@ -10,6 +10,15 @@ Currently Peyton supports
 [v1.0 of the API Gateway Payload format](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) and has been tested with both HTTP and REST APIs.
 
 ---
+
+## Dependencies
+
+Peyton has no dependencies outside of the Python standard library.
+
+<sup><sub>Note: Pipenv is used for local development and CI only.</sub></sup>
+
+---
+
 ## How To
 ```python
 

@@ -11,7 +11,7 @@ class Singleton(type):
     _lock: Lock = Lock()
 
     def __call__(cls, *args, **kwargs):
-        """Checks to ensure there is ONLY ONE router class."""
+        """Checks to ensure there is only one router instance."""
         with cls._lock:
             if not cls._instance:
                 cls._instance = super().__call__(*args, **kwargs)

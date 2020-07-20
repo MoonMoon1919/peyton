@@ -19,6 +19,7 @@ steps:
     dockerfile: "Dockerfile"
     stage: "build"
     registry: "docker"
+    disable_push: true
   run_all_checks:
     type: "parallel"
     stage: "test"

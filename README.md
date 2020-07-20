@@ -80,26 +80,3 @@ def lambda_handler(event, context):
     request = Request(event)
     return router.dispatch(request=request)
 ```
-
----
-
-MVP:
-- [x] Class based views
-- [x] Dispatched HTTP verbs
-- [x] Ability to specify path per view
-- [x] Serialized responses to json
-- [x] Include HTTP Status Code + Headers in response
-- [x] Class that turns API Gateway event into python object
-- [x] Ability to specify variables for endpoints
-- [x] Class for URL rules
-- [x] Automatically decode base64 encoded input
-- [x] Logging
-- [x] In-Line Documentation
-- [x] Unit Tests
-- [x] Integration Tests
-- [x] Style double check
-
----
-
-Roadmap:
-- [ ] Add support for Lambda behind ALB

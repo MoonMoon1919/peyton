@@ -15,6 +15,7 @@ class ResponseObject(TypedDict):
 
     body: str  # serialized string
     headers: dict
+    multiValueHeaders: dict
     status_code: int
     isBase64Encoded: bool
 

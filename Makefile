@@ -40,6 +40,9 @@ build/test/image:
 run/test/image: build/test/image
 	@$(DOCKER_RUN_CMD) $(IMAGE_NAME):$(GIT_SHA) make test
 
+run/test/lint: build/test/image
+	@$(DOCKER_RUN_CMD) $(IMAGE_NAME):$(GIT_SHA) make lint
+
 run/check/safety: build/test/image
 	@$(DOCKER_RUN_CMD) $(IMAGE_NAME):$(GIT_SHA) make check/safety
 

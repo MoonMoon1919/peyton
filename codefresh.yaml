@@ -30,6 +30,12 @@ steps:
         commands:
           - "make test"
         stage: "test"
+      run_tests:
+        title: "Run Flake8"
+        image: "${{build}}"
+        commands:
+          - "make lint"
+        stage: "test"
       run_safety:
         title: "Run Safety"
         image: "${{build}}"

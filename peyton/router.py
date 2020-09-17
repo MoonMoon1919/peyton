@@ -60,9 +60,7 @@ class Router(metaclass=Singleton):
 
         # Account for the possibility of a resource not being registered
         if resource is None:
-            return Response(
-                status_code=404, headers={}, body={"message": "Endpoint not found"}
-            ).to_json()
+            return Response(status_code=404, headers={}, body={"message": "Endpoint not found"}).to_json()
 
         # Create an empty dict for kwargs
         # TO DO: Test the speed of this, it might be slow

@@ -24,18 +24,14 @@ def prepare_router():
     @router.register("/")
     class BasicIndex(ViewBase):
         def get(self):
-            resp = Response(
-                status_code=200, headers={}, body={"message": "received GET"}
-            )
+            resp = Response(status_code=200, headers={}, body={"message": "received GET"})
 
             return resp.to_json()
 
     @router.register("/foo/{foo_id}")
     class FooById(ViewBase):
         def put(self, foo_id):
-            resp = Response(
-                status_code=200, headers={}, body={"message": "received PUT"}
-            )
+            resp = Response(status_code=200, headers={}, body={"message": "received PUT"})
 
             return resp.to_json()
 
@@ -43,10 +39,7 @@ def prepare_router():
             resp = Response(
                 status_code=201,
                 headers={},
-                body={
-                    "message": "received the following data %s"
-                    % router.current_request.body
-                },
+                body={"message": "received the following data %s" % router.current_request.body},
             )
 
             return resp.to_json()
@@ -54,9 +47,7 @@ def prepare_router():
     @router.register("/foo/{foo_id}/bar/{bar_id}")
     class BarIdByFoo(ViewBase):
         def put(self, foo_id, bar_id):
-            resp = Response(
-                status_code=200, headers={}, body={"message": "received PUT"}
-            )
+            resp = Response(status_code=200, headers={}, body={"message": "received PUT"})
 
             return resp.to_json()
 
@@ -87,10 +78,7 @@ def test_route_execution():
     router = prepare_router()
 
     assert router.routes["/"].view_cls().get()["body"] == '{"message": "received GET"}'
-    assert (
-        router.routes["/foo/{foo_id}"].view_cls().put(1)["body"]
-        == '{"message": "received PUT"}'
-    )
+    assert router.routes["/foo/{foo_id}"].view_cls().put(1)["body"] == '{"message": "received PUT"}'
 
 
 def test_route_does_not_exist():

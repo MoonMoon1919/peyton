@@ -18,18 +18,14 @@ def prepare_router():
     @router.register("/")
     class BasicIndex(ViewBase):
         def get(self):
-            resp = Response(
-                status_code=200, headers={}, body={"message": "received GET"}
-            )
+            resp = Response(status_code=200, headers={}, body={"message": "received GET"})
 
             return resp.to_json()
 
     @router.register("/foo/{foo_id}")
     class FooById(ViewBase):
         def put(self, foo_id):
-            resp = Response(
-                status_code=200, headers={}, body={"message": "received PUT"}
-            )
+            resp = Response(status_code=200, headers={}, body={"message": "received PUT"})
 
             return resp.to_json()
 

@@ -7,6 +7,7 @@ verify_ssl = true
 black = "*"
 safety = "*"
 pytest = "*"
+flake8 = "*"
 
 [packages]
 pipenv = "*"

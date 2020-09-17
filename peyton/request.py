@@ -5,7 +5,7 @@ import base64
 import json
 
 # Import our type checkers
-from peyton.type_checker import String, List, Dictionary, Boolean
+from peyton.type_checker import String, Dictionary, Boolean
 
 
 class Request:
@@ -27,9 +27,7 @@ class Request:
     http_method = String("http_method")
     is_base64_encoded = Boolean("is_base64_encoded")
     query_string_parameters = Dictionary("query_string_parameters")
-    multi_value_query_string_parameters = Dictionary(
-        "multi_value_query_string_parameters"
-    )
+    multi_value_query_string_parameters = Dictionary("multi_value_query_string_parameters")
     path_parameters = Dictionary("path_parameters")
     stage_variables = Dictionary("stage_variables")
     headers = Dictionary("headers")
@@ -42,9 +40,7 @@ class Request:
         # First we check if the element exists
         if event.get("isBase64Encoded", False):
             if event["isBase64Encoded"]:
-                event["body"] = json.loads(
-                    base64.b64decode(event["body"]).decode("utf-8")
-                )
+                event["body"] = json.loads(base64.b64decode(event["body"]).decode("utf-8"))
 
         if event["headers"].get("Content-Type"):
             if event["headers"]["Content-Type"].startswith("application/json"):

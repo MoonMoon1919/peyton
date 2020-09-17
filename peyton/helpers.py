@@ -1,13 +1,13 @@
 """Module containing helper classes and functions for Peyton."""
 
-from threading import Lock, Thread
+from threading import Lock
 from typing import Optional
 
 
 class Singleton(type):
     """Thread safe Singleton base class."""
 
-    _instance: Optional["Router"] = None
+    _instance: Optional["Router"] = None  # noqa
     _lock: Lock = Lock()
 
     def __call__(cls, *args, **kwargs):

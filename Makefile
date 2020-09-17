@@ -3,8 +3,9 @@ CWD := $(shell pwd)
 GIT_SHA := `git rev-parse --short HEAD`
 REQ_CHECK_CMD := pipenv run pip check
 SAFETY_CHECK_CMD := safety check --full-report
-BLACK_SET_CMD := black .
-BLACK_FORMAT_CHECK := black . --check --diff
+BLACK_SET_CMD := python3 -m black --line-length 110 .
+BLACK_FORMAT_CHECK := python3 -m black --check --diff --line-length 110 .
+LINT_COMMAND := python3 -m flake8 .
 TEST_CMD := pytest tests/
 DOCKER_BUILD_CMD := docker build
 DOCKER_RUN_CMD := docker run
@@ -17,6 +18,9 @@ sha:
 
 format:
 	@$(BLACK_SET_CMD)
+
+lint:
+	@$(LINT_COMMAND)
 
 check/format:
 	@$(BLACK_FORMAT_CHECK)

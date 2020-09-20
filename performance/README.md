@@ -45,7 +45,7 @@ def lambda_handler(event, context):
 ```
 #!/bin/bash
 
-ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/test
+ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/foo/2/bar/3
 
 ---
 
@@ -90,7 +90,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 #!/bin/bash
 
-ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/test
+ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/foo/2/bar/3
 
 ---
 
@@ -134,7 +134,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 #!/bin/bash
 
-ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/test
+ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/foo/2/bar/3
 
 ---
 
@@ -181,7 +181,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 #!/bin/bash
 
-ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/test
+ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/foo/2/bar/3
 
 ---
 
@@ -225,7 +225,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 #!/bin/bash
 
-ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/test
+ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/foo/2/bar/3
 
 ---
 
@@ -269,7 +269,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 #!/bin/bash
 
-ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/test
+ab -c 10 -n 1000 https://xxxx.execute-api.us-west-2.amazonaws.com/foo/2/bar/3
 
 ---
 

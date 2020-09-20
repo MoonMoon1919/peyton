@@ -2,16 +2,9 @@
 
 from functools import wraps
 import logging
-import sys
 
 logger = logging.getLogger("peyton")
 logger.setLevel(logging.INFO)
-
-default_handler = logging.StreamHandler(sys.stderr)
-default_handler.setFormatter(logging.Formatter("%(message)s"))
-
-# Create the logger
-logger.addHandler(default_handler)
 
 
 def log(fn):

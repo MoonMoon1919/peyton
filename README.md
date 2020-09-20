@@ -111,7 +111,7 @@ def lambda_handler(event, context):
 
 Performance is a top priority of this project. The total code package is designed to be as small as possible with no dependencies outside of the standard library. There will be continuous work being done to increase the speed of the code.
 
-It is important to recognize when performing benchmarks when running APIs on lambda and observing the benchmarks below that using (or increasing) [Provision Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) will reduce concurrent request times dramatically.
+It is important to recognize when performing benchmarks when running APIs on lambda and observing the benchmarks below that using (or increasing) [Provisioned Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) will reduce concurrent request times dramatically.
 
 You can see benchmarks [here](performance/README.md)
 

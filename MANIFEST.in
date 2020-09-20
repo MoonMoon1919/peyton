@@ -4,3 +4,4 @@ exclude docs/*
 exclude tests/*
 exclude .mypy_cache/*
 exclude .pytest_cache/*
+exclude performance/*

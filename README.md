@@ -1,6 +1,8 @@
 # Peyton
 
-A lightweight framework for AWS Lambda for building Rest APIs
+A lightweight framework for AWS Lambda for building Rest APIs.
+
+Peyton is designed to be as small as possible, with no requirements outside of the standard python library. It allows developers to create and deploy serverless applications easily.
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/moonmoon1919/peyton%2Ftest?key=eyJhbGciOiJIUzI1NiJ9.NWIyYThiMjYzYmFlOGEwMDAxY2RiZWZh.5h81Od2ooleQPSDJ1tUbMIrDYzxsRi3ovMy-NHkYNdY&type=cf-2)]( https%3A%2F%2Fg.codefresh.io%2Fpipelines%2Ftest%2Fbuilds%3Ffilter%3Dtrigger%3Abuild~Build%3Bpipeline%3A5e0699826e1ebef7fcd37bf6~test)
 
@@ -9,17 +11,30 @@ A lightweight framework for AWS Lambda for building Rest APIs
 Currently Peyton supports
 [v1.0 of the API Gateway Payload format](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) and has been tested with both HTTP and REST APIs.
 
+
+Peyton is being used in pre-production and is stable. However, the project is in it's pre-1.0 state and may change quickly. The author(s) will note breaking changes for releases, when necessary.
+
 ---
 
 ## Dependencies
 
 Peyton has no dependencies outside of the Python standard library.
 
-<sup><sub>Note: Pipenv is used for local development and CI only.</sub></sup>
+<sup>Note: Pipenv is used for local development and CI only.</sup>
 
 ---
 
 ## How To
+
+At this time Peyton only supports class based views, using HTTP verbs as method names. In practice class based views prove to be generally easy to reason about and encourage organization within a codebase.
+
+At a minimum you must do three things to use Peyton:
+- Instantiate the `Router` class
+- Define a new class that subclasses Peyton's `ViewClass`
+- Add the `register` decorator to the class, specifying the path to be used
+
+Below is a simple example of an API definition with two views (routes).
+
 ```python
 
 from peyton.view import ViewBase
@@ -89,3 +104,19 @@ def lambda_handler(event, context):
     request = Request(event)
     return router.dispatch(request=request)
 ```
+
+---
+
+# Performance
+
+Performance is a top priority of this project. The total code package is designed to be as small as possible with no dependencies outside of the standard library. There will be continuous work being done to increase the speed of the code.
+
+It is important to recognize when performing benchmarks when running APIs on lambda and observing the benchmarks below that using (or increasing) [Provision Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) will reduce concurrent request times dramatically.
+
+You can see benchmarks [here](performance/README.md)
+
+---
+
+## Inspiration
+
+Peyton was inspired by [Flask](https://github.com/pallets/flask) and [Chalice](https://github.com/aws/chalice). Please check out those great projects in addition to Peyton.

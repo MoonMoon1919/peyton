@@ -38,7 +38,7 @@ Below is a simple example of an API definition with two views (routes).
 ```python
 
 from peyton.view import ViewBase
-from peyton.response import Response, ResponseObject
+from peyton.response import Response
 from peyton.request import Request
 from peyton.router import Router
 
@@ -47,12 +47,12 @@ router = Router()
 
 @router.register(path="/")
 class Index(ViewBase):
-    def get(self) -> ResponseObject:
+    def get(self) -> dict:
         resp = Response(status_code=200, headers={}, body={"message": "received GET to index"},)
 
         return resp.to_json()
 
-    def put(self) -> ResponseObject:
+    def put(self) -> dict:
         # Retrieve the body from the request
         body = router.current_request.body
 
@@ -62,7 +62,7 @@ class Index(ViewBase):
 
         return resp.to_json()
 
-    def post(self) -> ResponseObject:
+    def post(self) -> dict:
         # Retrieve the body from the request
         body = router.current_request.body
 
@@ -74,12 +74,12 @@ class Index(ViewBase):
 
 @router.register(path="/foo/{foo_id}/bar/{bar_id}")
 class AllBars(ViewBase):
-    def get(self, foo_id, bar_id) -> ResponseObject:
+    def get(self, foo_id, bar_id) -> dict:
         resp = Response(status_code=200, headers={}, body={"foo_id": foo_id, "bar_id": bar_id, "message": "all bars by foo"},)
 
         return resp.to_json()
 
-    def put(self, foo_id, bar_id) -> ResponseObject:
+    def put(self, foo_id, bar_id) -> dict:
         # Retrieve the body from the request
         body = router.current_request.body
 
@@ -89,7 +89,7 @@ class AllBars(ViewBase):
 
         return resp.to_json()
 
-    def post(self, foo_id, bar_id) -> ResponseObject:
+    def post(self, foo_id, bar_id) -> dict:
         # Retrieve the body from the request
         body = router.current_request.body
 

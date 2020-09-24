@@ -1,7 +1,7 @@
 """Base class for Views."""
 
 # Import our Response class
-from peyton.response import Response, ResponseObject
+from peyton.response import Response
 
 
 class ViewBase:
@@ -22,23 +22,23 @@ class ViewBase:
               if a supported HTTP method verb does not exist
     """
 
-    def get(self, **kwargs) -> ResponseObject:
+    def get(self, **kwargs) -> dict:
         resp = Response(status_code=405, headers={}, body={"message": "Method not implemented"})
         return resp.to_json()
 
-    def post(self, **kwargs) -> ResponseObject:
+    def post(self, **kwargs) -> dict:
         resp = Response(status_code=405, headers={}, body={"message": "Method not implemented"})
         return resp.to_json()
 
-    def put(self, **kwargs) -> ResponseObject:
+    def put(self, **kwargs) -> dict:
         resp = Response(status_code=405, headers={}, body={"message": "Method not implemented"})
         return resp.to_json()
 
-    def patch(self, **kwargs) -> ResponseObject:
+    def patch(self, **kwargs) -> dict:
         resp = Response(status_code=405, headers={}, body={"message": "Method not implemented"})
         return resp.to_json()
 
-    def delete(self, **kwargs) -> ResponseObject:
+    def delete(self, **kwargs) -> dict:
         resp = Response(status_code=405, headers={}, body={"message": "Method not implemented"})
         return resp.to_json()
 

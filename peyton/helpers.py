@@ -7,7 +7,8 @@ from typing import Optional
 class Singleton(type):
     """Thread safe Singleton base class."""
 
-    _instance: Optional["Router"] = None  # noqa
+    # Ignore typing and flake issues here because of circular imports
+    _instance: Optional["Router"] = None  # type: ignore # noqa
     _lock: Lock = Lock()
 
     def __call__(cls, *args, **kwargs):

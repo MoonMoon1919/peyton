@@ -46,6 +46,11 @@ steps:
         image: "${{build}}"
         commands:
           - "make check/format"
+      run_typing_check:
+        title: "Run Typing Check"
+        image: "${{build}}"
+        commands:
+          - "make check/typing"
     when:
       condition:
         all:

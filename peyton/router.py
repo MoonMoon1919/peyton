@@ -1,7 +1,10 @@
 """Router module for Petyon."""
 
+from typing import List
+
 from peyton.helpers import Singleton
 from peyton.logger import log
+from peyton.request import Request
 from peyton.response import Response
 
 
@@ -52,7 +55,7 @@ class Router(metaclass=Singleton):
         return decorator
 
     @log
-    def dispatch(self, request: dict = None):
+    def dispatch(self, request: Request):
         """Handles dispatching all requests made."""
         self.current_request = request
 
@@ -69,7 +72,7 @@ class Router(metaclass=Singleton):
         # Dont iterate if there are no path parameters
         if resource.path_params:
             for item in resource.path_params:
-                kwargs[item] = request.path_parameters[item]
+                kwargs[item] = request.path_parameters[item]  # type: ignore
 
         # Instantiate the view class
         # This is done here to ensure each request has it's own instance
@@ -96,7 +99,7 @@ class UrlRule:
         See request.py to see how this is populated
         """
         remove = ["{", "}"]
-        path_params = []
+        path_params: List[str] = []
 
         # Split the path to parse params
         path_splitter = self.path.split("/")

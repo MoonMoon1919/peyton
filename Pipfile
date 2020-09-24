@@ -8,6 +8,7 @@ black = "*"
 safety = "*"
 pytest = "*"
 flake8 = "*"
+mypy = "*"
 
 [packages]
 pipenv = "*"

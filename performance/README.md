@@ -6,7 +6,7 @@ Performance tests are run using [ab - The Apache HTTP server benchmarking tool](
 Test Setup Code:
 ```
 from peyton.view import ViewBase
-from peyton.response import Response, ResponseObject
+from peyton.response import Response
 from peyton.request import Request
 from peyton.router import Router
 
@@ -16,7 +16,7 @@ router = Router()
 
 @router.register(path="/foo/{foo_id}/bar/{bar_id}")
 class AllBars(ViewBase):
-    def get(self, foo_id, bar_id) -> ResponseObject:
+    def get(self, foo_id, bar_id) -> dict:
         resp = Response(
             status_code=200,
             headers={},

@@ -7,6 +7,7 @@ BLACK_SET_CMD := python3 -m black --line-length 110 .
 BLACK_FORMAT_CHECK := python3 -m black --check --diff --line-length 110 .
 LINT_COMMAND := python3 -m flake8 .
 TEST_CMD := pytest tests/
+MYPY_CHECK_CMD := mypy peyton/
 DOCKER_BUILD_CMD := docker build
 DOCKER_RUN_CMD := docker run
 IMAGE_NAME := peyton_test
@@ -30,6 +31,9 @@ check/reqs:
 
 check/safety:
 	@$(SAFETY_CHECK_CMD)
+
+check/typing:
+	@$(MYPY_CHECK_CMD)
 
 test:
 	@$(TEST_CMD)

@@ -1,23 +1,10 @@
 """Class for responses."""
 
 import base64
-from typing import TypedDict
 import json
 
 # Import our type checkers
 from peyton.type_checker import Dictionary, Integer, Boolean
-
-
-class ResponseObject(TypedDict):
-    """
-    This is here exclusively for type hinting for HTTP Verb function outputs.
-    """
-
-    body: str  # serialized string
-    headers: dict
-    multiValueHeaders: dict
-    status_code: int
-    isBase64Encoded: bool
 
 
 class Response:
@@ -62,7 +49,7 @@ class Response:
         resp_body = json.dumps(self.body)
 
         if self.isBase64Encoded:
-            resp_body = base64.b64encode(resp_body.encode("ascii"))
+            resp_body = base64.b64encode(resp_body.encode("ascii"))  # type: ignore
 
         response = {
             "body": resp_body,

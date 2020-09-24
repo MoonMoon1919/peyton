@@ -8,3 +8,4 @@ peyton.egg-info/*
 MANIFEST
 build/*
 dist/*
+.mypy_cache/*

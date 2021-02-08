@@ -1,12 +1,11 @@
 """."""
 
+import base64
+import json
 import sys
 from os import path
-import json
-import base64
 
 import pytest
-
 from peyton.response import Response
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))

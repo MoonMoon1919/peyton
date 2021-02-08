@@ -9,6 +9,7 @@ safety = "*"
 pytest = "*"
 flake8 = "*"
 mypy = "*"
+isort = {extras = ["pipfile_deprecated_finder"], version = "*"}
 
 [packages]
 pipenv = "*"

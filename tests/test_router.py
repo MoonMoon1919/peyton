@@ -1,13 +1,13 @@
 """."""
 
+import json
 import sys
 from os import path
-import json
 
+from peyton.request import Request
+from peyton.response import Response
 from peyton.router import Router, UrlRule
 from peyton.view import ViewBase
-from peyton.response import Response
-from peyton.request import Request
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 

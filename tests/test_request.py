@@ -1,10 +1,10 @@
 """Module for testing Request module."""
 
+import json
 import sys
 from os import path
-import json
-import pytest
 
+import pytest
 from peyton.request import Request
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
@@ -73,3 +73,10 @@ def test_none_types():
     data["stageVariables"] = None
 
     req = Request(data)
+
+
+def test_query_params():
+    data = retrieve_fixture()
+    req = Request(data)
+
+    assert req.query_string_parameters == {"query": "parameter"}

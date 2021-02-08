@@ -38,7 +38,9 @@
             "https"
         ]
     },
-    "queryStringParameters": {},
+    "queryStringParameters": {
+        "query": "parameter"
+    },
     "multiValueQueryStringParameters": {},
     "pathParameters": {
         "foo_id": "bar",

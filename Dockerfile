@@ -1,4 +1,4 @@
-FROM python:3.8.2-alpine3.11
+FROM python:3.8.9-alpine3.13
 
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
@@ -10,8 +10,7 @@ RUN pip install --upgrade pipenv setuptools wheel twine
 RUN mkdir app
 
 COPY Pipfile Pipfile.lock ./
-RUN pipenv lock --dev -r > requirements.txt
-RUN pip install -r requirements.txt
+RUN pipenv install --dev --system
 
 COPY . ./app
 

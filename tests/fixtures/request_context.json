@@ -1,0 +1,47 @@
+{
+    "accountId": "11111111111",
+    "apiId": "xxxxxxx000",
+    "authorizer": {
+        "claims": {
+            "auth_time": "1621522395",
+            "client_id": "xxxxxxxxxxxxxxxxxxxxxxx",
+            "event_id": "aaaaaaaa-yyyy-zzzz-dddd-llllllllllll",
+            "exp": "1621525995",
+            "iat": "1621522395",
+            "iss": "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_xxxxxxxxx",
+            "jti": "zzzzzzzz-xxxx-cccc-vvvv-bbbbbbbbbbbb",
+            "scope": "aws.cognito.signin.user.admin",
+            "sub": "qqqqqqqq-wwww-eeee-rrrr-ttttttyyyyyy",
+            "token_use": "access",
+            "username": "qqqqqqqq-wwww-eeee-rrrr-ttttttyyyyyy"
+        },
+        "scopes": "None"
+    },
+    "domainName": "foobar.acme.co",
+    "domainPrefix": "foobar",
+    "extendedRequestId": "xxxxxxxxxxxxxxx=",
+    "httpMethod": "GET",
+    "identity": {
+        "accessKey": "None",
+        "accountId": "None",
+        "caller": "None",
+        "cognitoAmr": "None",
+        "cognitoAuthenticationProvider": "None",
+        "cognitoAuthenticationType": "None",
+        "cognitoIdentityId": "None",
+        "cognitoIdentityPoolId": "None",
+        "principalOrgId": "None",
+        "sourceIp": "1.2.3.4",
+        "user": "None",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+        "userArn": "None"
+    },
+    "path": "/v1/foos",
+    "protocol": "HTTP/1.1",
+    "requestId": "xxxxxxxxxxxxxxx=",
+    "requestTime": "20/May/2021:15:15:14 +0000",
+    "requestTimeEpoch": 1621523714571,
+    "resourceId": "GET /foos",
+    "resourcePath": "/foos",
+    "stage": "v1"
+}

@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="peyton",
-    version="0.1.7",
+    version="0.1.8",
     packages=find_packages(exclude=["test*", "performance*"]),
     license="MIT",
     long_description=open("README.md").read(),

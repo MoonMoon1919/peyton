@@ -18,3 +18,14 @@ class Singleton(type):
                 cls._instance = super().__call__(*args, **kwargs)
 
         return cls._instance
+
+
+def load_current_user(request_context) -> Optional[str]:
+    """Load the current user from the request."""
+
+    if (authorizer := request_context.get("authorizer")) is not None:
+        claims = authorizer.get("claims", {})
+
+        return claims.get("sub")
+
+    return None
